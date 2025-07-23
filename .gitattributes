@@ -1,0 +1,6 @@
+# Set default line endings to LF for all text files
+* text=auto
+*.py text eol=lf
+*.css text eol=lf
+*.txt text eol=lf
+*.md text eol=lf

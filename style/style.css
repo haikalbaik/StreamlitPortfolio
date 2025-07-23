@@ -1,0 +1,342 @@
+/* --- GENERAL --- */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #EAEAEA; /* Slightly off-white for softer text */
+    background-color: #0A0A0A;
+}
+
+/* This targets the main container of the Streamlit app */
+[data-testid="stAppViewContainer"] {
+    /* Subtle gradient for depth */
+    background-image: radial-gradient(circle at top right, #2a2a2a, #0a0a0a);
+    color: #EAEAEA;
+}
+
+/* --- HEADERS --- */
+[data-testid="stAppViewContainer"] h1,
+[data-testid="stAppViewContainer"] h2,
+[data-testid="stAppViewContainer"] h3 {
+    color: #FF8C00; /* A brighter, more fiery orange */
+    font-weight: 700; /* Bolder font */
+    text-shadow: 1px 1px 8px rgba(255, 107, 0, 0.4); /* Subtle orange glow */
+}
+
+/* --- PROJECT & CONTAINER STYLING --- */
+.project-card-single {
+    border: 1px solid #333;
+    padding: 2em;
+    border-radius: 0.75em;
+    background-color: #121212;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    transition: all 0.4s ease-in-out;
+    margin-bottom: 2em; /* Space between cards */
+}
+
+.project-card-single:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 16px 32px rgba(255, 107, 0, 0.25);
+    border-color: #FF6B00;
+}
+
+[data-testid="stColumn"] > div > [data-testid="stVerticalBlock"] {
+    border: 1px solid #333;
+    padding: 2em; /* Increased padding for more breathing room */
+    border-radius: 0.75em; /* Slightly more rounded corners */
+    background-color: #121212; /* Darker card background */
+    /* A more pronounced shadow for a "lifting" effect */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    transition: all 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Fill column height for alignment */
+    position: relative;
+}
+
+
+[data-testid="stColumn"] > div > [data-testid="stVerticalBlock"]:hover {
+    transform: translateY(-10px) scale(1.02); /* Lift and scale up */
+    box-shadow: 0 16px 32px rgba(255, 107, 0, 0.25);
+    border-color: #FF6B00;
+}
+
+/* --- PROJECT CARD CONTENT --- */
+.difficulty-icons {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    /* Glowing effect for the fire icons */
+    text-shadow: 0 0 12px rgba(255, 107, 0, 0.8);
+}
+
+.project-description-wrapper {
+    flex-grow: 1;
+    margin-bottom: 1.5em; /* More space above the skills/button */
+}
+
+.project-description-wrapper p {
+    color: #B3B3B3; /* Lighter grey for description text */
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+.project-skills-wrapper {
+    margin-bottom: 1.5em; /* More space for alignment */
+}
+
+/* --- CUSTOM SOURCE CODE BUTTON --- */
+.stLinkButton {
+    background-color: transparent;
+    border: 1px solid #FF8C00;
+    color: #FF8C00;
+    padding: 0.6em 1.2em;
+    border-radius: 0.5em;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: inline-block; /* Needed for padding and border */
+    margin-top: 1em; /* Add some space above the button */
+}
+
+.stLinkButton:hover {
+    background-color: #FF8C00;
+    color: #0A0A0A; /* Dark text on hover */
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.5);
+}
+
+
+/* --- CONTACT FORM --- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type="text"], input[type="email"], textarea {
+    background-color: #2B2B2B;
+    color: #EAEAEA;
+    border: 1px solid #444444;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    background-color: #FF6B00;
+    color: #0A0A0A;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #E05E00;
+}
+
+/* --- INTERACTIVE SKILLS (as links) --- */
+.skill-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding-top: 10px;
+}
+
+a.skill-box {
+    background-color: #2B2B2B;
+    border: 1px solid #444;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none; /* Remove underline from link */
+}
+
+/* The highlight layer */
+a.skill-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0; /* Initially hidden */
+    background-color: #FF8C00;
+    z-index: 1;
+    transition: width 0.4s ease-in-out;
+}
+
+/* The text elements */
+a.skill-box .skill-name, a.skill-box .skill-score {
+    position: relative;
+    z-index: 2; /* Ensure text is above the highlight layer */
+    transition: color 0.3s ease;
+}
+
+a.skill-box .skill-score {
+    display: none; /* Hide score by default */
+    margin-left: 8px;
+    font-weight: 700;
+    color: #0A0A0A; /* Dark text for on the highlight */
+}
+
+/* --- HOVER EFFECTS --- */
+a.skill-box:hover {
+    border-color: #FF8C00;
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 4px 12px rgba(255, 107, 0, 0.2);
+}
+
+a.skill-box:hover::before {
+    width: var(--proficiency-percent); /* Animate the highlight on hover */
+}
+
+a.skill-box:hover .skill-name {
+    color: #0A0A0A; /* Change name color on hover to be visible on the highlight */
+}
+
+a.skill-box:hover .skill-score {
+    display: inline; /* Show score on hover */
+}
+
+/* --- SMALL SKILL TAGS FOR EXPERIENCE SECTION --- */
+.skill-box-container-sm {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 10px;
+}
+.skill-box-sm {
+    background-color: #333;
+    border: 1px solid #555;
+    color: #EAEAEA;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Align project icon with title */
+[data-testid="stHorizontalBlock"] {
+    align-items: center;
+}
+
+
+/* --- Expander/Accordion Styling --- */
+[data-testid="stExpander"] {
+    border: 1px solid #333333;
+    border-radius: 0.5em;
+    background-color: #1C1C1C;
+    margin-bottom: 1em;
+}
+
+[data-testid="stExpander"] > details {
+    padding: 0.5em;
+}
+
+[data-testid="stExpander"] > details > summary {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #FF8C00;
+}
+
+[data-testid="stExpander"] > details > summary:hover {
+    color: #E05E00;
+}
+
+[data-testid="stExpander"] > details[open] > summary {
+    color: #E05E00;
+}
+
+[data-testid="stExpander"] .streamlit-expanderContent {
+    padding-top: 1em;
+}
+
+/* --- JOB EXPERIENCE STYLING --- */
+.job-card {
+    background-color: #1C1C1C;
+    border: 1px solid #333;
+    border-radius: 0.75em;
+    margin-bottom: 1.5em;
+    transition: all 0.3s ease-in-out;
+    border-left: 5px solid #FF8C00;
+    padding: 1.5em;
+}
+
+.job-card:hover {
+    transform: translateY(-5px) scale(1.01); /* Slightly lift and scale */
+    box-shadow: 0 16px 32px rgba(255, 107, 0, 0.25); /* Orange glow */
+    border-color: #FF6B00;
+}
+
+.job-card.highlighted-job {
+    border-color: #E05E00;
+    box-shadow: 0 8px 24px rgba(255, 107, 0, 0.2);
+    transform: scale(1.01);
+}
+
+/* Remove default marker from details/summary */
+.job-card summary {
+    list-style: none; /* For Firefox */
+    cursor: pointer;
+}
+.job-card summary::-webkit-details-marker {
+    display: none; /* For Chrome/Safari */
+}
+
+.job-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+    font-size: 1.5em;
+    display: inline-block;
+}
+
+.job-company-details {
+    margin-bottom: 0.5em;
+    font-size: 1em;
+    color: #B3B3B3;
+}
+
+/* Add a custom clickable icon */
+.job-card summary::after {
+    content: '+';
+    float: right;
+    font-size: 2em;
+    font-weight: bold;
+    color: #FF8C00;
+    transition: transform 0.3s ease;
+}
+
+.job-card details[open] summary::after {
+    transform: rotate(45deg);
+}
+
+.job-responsibilities {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    border-top: 1px solid #333;
+    padding-top: 1.5em;
+}
+
+.job-responsibilities li {
+    position: relative;
+    padding-left: 1.5em;
+    margin-bottom: 0.75em;
+    line-height: 1.6;
+}
+
+
+
+.visible-skills {
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: 1px solid #333;
+}
