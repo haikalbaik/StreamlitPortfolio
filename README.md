@@ -47,7 +47,10 @@ This portfolio website was built with the assistance of **Gemini 2.5 Pro and Gem
     ```bash
     pip install -r requirements.txt
     ```
-6.  **Run the Streamlit application:**
+6.  **Update your information**
+    All the data for the portfolio is stored in the `data.py` file. Open this file and edit the `ABOUT_ME_DATA`, `ALL_SKILLS`, `JOB_DATA`, and `PROJECT_DATA` variables to reflect your own information.
+
+7.  **Run the Streamlit application:**
     ```bash
     streamlit run app.py
     ```
