@@ -340,3 +340,79 @@ a.skill-box:hover .skill-score {
     padding-top: 1em;
     border-top: 1px solid #333;
 }
+
+/* --- IDEA BANK STYLING --- */
+.idea-card {
+    background-color: #1C1C1C;
+    border: 1px solid #333;
+    border-radius: 0.75em;
+    margin-bottom: 1.5em;
+    transition: all 0.3s ease-in-out;
+    border-left: 5px solid #FF8C00;
+    padding: 1.5em;
+}
+
+.idea-card:hover {
+    transform: translateY(-5px) scale(1.01); /* Slightly lift and scale */
+    box-shadow: 0 16px 32px rgba(255, 107, 0, 0.25); /* Orange glow */
+    border-color: #FF6B00;
+}
+
+.idea-card summary {
+    list-style: none; /* For Firefox */
+    cursor: pointer;
+}
+
+.idea-card summary::-webkit-details-marker {
+    display: none; /* For Chrome/Safari */
+}
+
+.idea-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+    font-size: 1.5em;
+    display: inline-block;
+}
+
+.idea-card summary::after {
+    content: '+';
+    float: right;
+    font-size: 2em;
+    font-weight: bold;
+    color: #FF8C00;
+    transition: transform 0.3s ease;
+}
+
+.idea-card details[open] summary::after {
+    transform: rotate(45deg);
+}
+
+.idea-details {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    border-top: 1px solid #333;
+    padding-top: 1.5em;
+}
+
+.idea-details li {
+    position: relative;
+    padding-left: 1.5em;
+    margin-bottom: 0.75em;
+    line-height: 1.6;
+}
+
+.idea-details li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #FF8C00;
+    font-weight: bold;
+}
+
+.idea-skills-wrapper {
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: 1px solid #333;
+}

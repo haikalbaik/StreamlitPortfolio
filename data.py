@@ -84,3 +84,27 @@ PROJECT_DATA = [
     {"title": "Project 5: MVP - Secure Data Room", "difficulty": 3, "link": None, "description": "Delivered a secure and cost-effective solution for remote data access by building a Minimum Viable Product (MVP) using open-source tools, fulfilling an urgent client need without expensive VDR software.", "skills": ["Apache Guacamole", "Windows Hardening", "Bash Scripting", "Firewall Configuration"]},
     {"title": "Project 6: Telco Data Analysis", "difficulty": 4, "link": None, "description": "Unlocked new marketing opportunities for a client by analyzing a massive 1TB+ telco dataset (76M+ rows) to identify and present targeted strategies for Digital Out-of-Home advertising.", "skills": ["Power BI", "SQL", "Pandas","Numpy","Seaborn", "Matplotlib"]}
 ]
+
+# --- DATA FOR IDEA BANK ---
+IDEA_DATA = [
+    {
+        "title": "Idea 1: RAG Application for Contract Details",
+        "problem_statement": "Users need to verify if their actions align with contractual obligations, but manually reviewing complex contracts is time-consuming and prone to error.",
+        "app_details": {
+            "description": "An application where users can upload contracts and query them to check compliance. It will leverage a local or privately hosted Large Language Model (LLM) for Retrieval-Augmented Generation (RAG) to provide accurate, context-aware answers based on the contract content.",
+            "tech_stack": ["Python", "LangChain", "Local/Private LLM (e.g., Llama 3, Mistral)", "Vector Databases (e.g., Chroma, Pinecone)"]
+        },
+        "solution": "This application will resolve compliance issues by providing instant, accurate verification against contract terms, ensuring both parties fulfill their obligations. Deploying it as a Microsoft Teams Bot will restrict access to qualified parties, ensuring secure and controlled usage within an organizational context.",
+        "deployment": "Microsoft Teams Bot (restricted access for qualified parties)"
+    },
+    {
+        "title": "Idea 2: Resume & Cover Letter Update based on Job Application",
+        "problem_statement": "Users struggle to tailor their resumes and cover letters for specific job applications, leading to lower success rates.",
+        "app_details": {
+            "description": "A local desktop application that takes a user's resume and a job application (link or text) as input. It then uses an LLM (initially Gemini API, later expandable to other models) to generate a customized resume and cover letter optimized for the specific job.",
+            "tech_stack": ["Python", "Streamlit (or similar GUI framework)", "Gemini API (or other LLM APIs)", "PDF parsing libraries"]
+        },
+        "solution": "This app will significantly reduce the time and effort required for job seekers to customize their application materials, increasing their chances of getting interviews by providing highly relevant and targeted documents.",
+        "deployment": "Local desktop application"
+    }
+]

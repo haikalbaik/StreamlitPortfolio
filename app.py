@@ -1,6 +1,6 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
-from data import ABOUT_ME_DATA, ALL_SKILLS, JOB_DATA, PROJECT_DATA
+from data import ABOUT_ME_DATA, ALL_SKILLS, JOB_DATA, PROJECT_DATA, IDEA_DATA
 
 # --- FUNCTIONS ---
 def local_css(file_name):
@@ -26,8 +26,8 @@ default_tab_index = 1 if selected_skill_from_query else 0
 
 selected = option_menu(
     menu_title=None,
-    options=["About Me", "Experience", "Projects", "Contact Me"],
-    icons=["person-bounding-box", "briefcase-fill", "code-braces", "envelope-at-fill"],
+    options=["About Me", "Experience", "Projects", "Idea Bank", "Contact Me"],
+    icons=["person-bounding-box", "briefcase-fill", "code-braces", "lightbulb", "envelope-at-fill"],
     menu_icon="cast",
     default_index=default_tab_index,
     orientation="horizontal",
@@ -155,6 +155,37 @@ def contact_me():
         """
     )
 
+# --- IDEA BANK PAGE ---
+def idea_bank():
+    st.title("Idea Bank")
+    st.write("---")
+    st.info("A collection of my project ideas. Feel free to reach out if you'd like to collaborate!", icon="💡")
+
+    for idea in IDEA_DATA:
+        st.markdown(f"""
+        <div class="idea-card">
+            <details>
+                <summary>
+                    <h3>{idea['title']}</h3>
+                </summary>
+                <div class="idea-details">
+                    <h4>Problem Statement</h4>
+                    <p>{idea['problem_statement']}</p>
+                    <h4>Application Details</h4>
+                    <p>{idea['app_details']['description']}</p>
+                    <div class="idea-skills-wrapper">
+                        <strong>Tech Stack:</strong>
+                        <div class="skill-box-container-sm">
+                            {''.join([f'<div class="skill-box-sm">{skill}</div>' for skill in idea["app_details"]["tech_stack"]])}
+                        </div>
+                    </div>
+                    <h4>Solution</h4>
+                    <p>{idea['solution']}</p>
+                </div>
+            </details>
+        </div>
+        """, unsafe_allow_html=True)
+
 # --- PAGE SELECTION LOGIC ---
 if selected == "About Me":
     about_me()
@@ -162,5 +193,7 @@ elif selected == "Experience":
     experience()
 elif selected == "Projects":
     projects()
+elif selected == "Idea Bank":
+    idea_bank()
 elif selected == "Contact Me":
     contact_me()
